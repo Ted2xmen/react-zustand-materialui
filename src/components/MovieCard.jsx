@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import Skeleton from "@mui/material/Skeleton";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import { useNavigate } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,10 +22,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function MovieCard({ movie }) {
-  const data = false; // movie
+  const data = true; // movie
+
+    const navigate = useNavigate();
 
   return (
-    <Grid item>
+    <Grid item sm={5} md={4} lg={3}>
       <Item elevation={0}>
         <Card sx={{ maxWidth: 330 }}>
           {data ? (
@@ -75,9 +78,15 @@ export default function MovieCard({ movie }) {
               {data ? movie.description.slice(0, 200) + "..." : <Skeleton />}
             </Typography>
           </CardContent>
-          <CardActions>
+          <CardActions style={{ justifyContent: "end" }}>
             {data ? (
-              <Button size="small">{movie.id}</Button>
+              <Button
+                onClick={() => navigate(`details/${movie.id}`)}
+                size="small"
+                variant="outlined"
+              >
+                Details
+              </Button>
             ) : (
               <Skeleton variant="string" width={330} height={30} />
             )}
