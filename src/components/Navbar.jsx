@@ -1,32 +1,29 @@
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import Link from "@mui/material/Link";
+import { Box, Button, Divider, ButtonGroup } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-          
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="success" component="div" sx={{ flexGrow: 1 }}>
-            <Link color="primary.dark" href="/">home</Link>
-          </Typography>
-          <Button color="inherit">Github</Button>
-        </Toolbar>
-      </AppBar>
+    <Box
+      paddingTop={2}
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      gap={3}
+    >
+      <img
+        src="https://wikiimg.tojsiabtv.com/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png"
+        alt="logo"
+        width={550}
+      />
+      <ButtonGroup variant="" aria-label="outlined primary button group">
+        <Button onClick={() => navigate("/")}>Home</Button>
+        <Button onClick={() => navigate("/people")}>People</Button>
+        <Button>Github</Button>
+      </ButtonGroup>
+      <Divider />
     </Box>
   );
 }

@@ -6,18 +6,16 @@ import { useEffect } from "react";
 import CardMedia from "@mui/material/CardMedia";
 import { Box, Stack, Chip, Typography } from "@mui/material";
 
-
-
 const Details = () => {
   const { id } = useParams();
 
-   const detail = useStore((state) => state.detail);
-   const fetchDetail = useStore((state) => state.fetchDetail);
+  const detail = useStore((state) => state.detail);
+  const fetchDetail = useStore((state) => state.fetchDetail);
 
-   useEffect(() => {
-     fetchDetail(id);
-     console.count()
-   }, [fetchDetail ,id]);
+  useEffect(() => {
+    fetchDetail(id);
+    console.count();
+  }, [fetchDetail, id]);
 
   return (
     <>
@@ -36,7 +34,7 @@ const Details = () => {
           </Typography>
           <CardMedia
             component="img"
-            height="440"
+            height="300"
             style={{ objectFit: "contain" }}
             image={detail.image}
             alt={detail.title}
@@ -50,12 +48,12 @@ const Details = () => {
             {detail.original_title}
           </Typography>
         </Box>
-        <Typography component="h4" variant="h6" paddingY={1}>
+        <Typography component="h4" variant="h6" paddingBottom={5}>
           {detail.description}
         </Typography>
       </Container>
     </>
   );
-}
+};
 
-export default Details
+export default Details;

@@ -4,7 +4,7 @@ import axios from "axios";
 export const useStore = create((set) => ({
   searchTerm: "",
   category: [],
-
+  
   setCategory(category) {
     set((state) => ({
       ...category,
@@ -20,7 +20,7 @@ export const useStore = create((set) => ({
 
   movies: [],
   detail: [],
-  person: [],
+  person: [], // change later: people
   vehicles: [],
   species: [],
   locations: [],

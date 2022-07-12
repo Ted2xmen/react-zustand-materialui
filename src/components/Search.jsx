@@ -6,8 +6,7 @@ import { useStore } from "../store/dataStore";
 export default function Search() {
   const searchTerm = useStore((state) => state.searchTerm);
   const setFilter = useStore((state) => state.setFilter);
-    const category = useStore((state) => state.category);
-
+  const category = useStore((state) => state.category);
 
   return (
     <Box
@@ -20,7 +19,7 @@ export default function Search() {
         maxWidth: "100%",
       }}
     >
-        <p> {category} </p>
+      <p> {category} </p>
       <TextField
         value={searchTerm}
         onChange={(e) => setFilter(e.target.value)}

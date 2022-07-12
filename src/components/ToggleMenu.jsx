@@ -17,7 +17,6 @@ export default function ToggleMenu() {
     { name: "Movies", value: "title" },
   ];
 
-
   return (
     <ToggleButtonGroup
       value={formats}

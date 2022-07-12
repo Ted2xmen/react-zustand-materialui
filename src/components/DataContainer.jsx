@@ -5,7 +5,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { AnimatePresence } from "framer-motion";
 
-
 const DataContainer = () => {
   const movies = useStore((state) => state.movies);
   const fetchMovie = useStore((state) => state.fetchMovie);
