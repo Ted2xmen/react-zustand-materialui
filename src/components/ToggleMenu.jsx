@@ -13,8 +13,8 @@ export default function ToggleMenu() {
   };
 
   const items = [
-    { name: "Movies", value: "director" },
-    { name: "Director", value: "title" },
+    { name: "Director", value: "director" },
+    { name: "Movies", value: "title" },
   ];
 
 

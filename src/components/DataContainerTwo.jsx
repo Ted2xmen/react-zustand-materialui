@@ -7,6 +7,8 @@ import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 
 
+
+
 //  const movies = useStore((state) => state.movies);
 //  const fetchMovie = useStore((state) => state.fetchMovie);
 

@@ -3,10 +3,11 @@ import axios from "axios";
 
 export const useStore = create((set) => ({
   searchTerm: "",
-  category: "",
+  category: [],
 
   setCategory(category) {
     set((state) => ({
+      ...category,
       category,
     }));
   },
