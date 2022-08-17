@@ -5,7 +5,14 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { AnimatePresence } from "framer-motion";
 
-const DataContainer = () => {
+type Props = {
+  title: Array<string>;
+  director: string;
+  fetchMovie: () => void;
+  variant?: "text" | "rectangular" | "circular" | undefined;
+};
+
+const DataContainer: React.FC<Props> = () => {
   const movies = useStore((state) => state.movies);
   const fetchMovie = useStore((state) => state.fetchMovie);
   const searchTerm = useStore((state) => state.searchTerm);

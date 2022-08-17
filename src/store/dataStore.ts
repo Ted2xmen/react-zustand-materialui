@@ -1,18 +1,34 @@
 import create from "zustand";
 import axios from "axios";
 
-export const useStore = create((set) => ({
+type Props = {
+  fetchPerson: any;
+  fetchDetail: any;
+  fetchMovie: any;
+  category: Object | any;
+  searchTerm: string,
+  // setCategory: (category: string) => void
+  movies: Array<string>,
+  detail: Array<string>,
+  person: Array<string>,
+  vehicles: Array<string>,
+  species: Array<string>,
+  locations: Array<string>
+}
+
+
+export const useStore = create<Props>((set) => ({
   searchTerm: "",
   category: [],
-  
-  setCategory(category) {
+
+  setCategory(category: string) {
     set((state) => ({
       ...category,
       category,
     }));
   },
 
-  setFilter(searchTerm) {
+  setFilter(searchTerm: string) {
     set((state) => ({
       searchTerm,
     }));
@@ -24,7 +40,7 @@ export const useStore = create((set) => ({
   vehicles: [],
   species: [],
   locations: [],
-  fetchDetail: async (id) => {
+  fetchDetail: async (id: number) => {
     const response = await axios.get(
       `https://ghibliapi.herokuapp.com/films/${id}`
     );

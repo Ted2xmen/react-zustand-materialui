@@ -22,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie }: any) {
   const data = true; // movie
 
   const navigate = useNavigate();
@@ -30,11 +30,9 @@ export default function MovieCard({ movie }) {
   return (
     <Grid item sm={5} md={4} lg={3}>
       <motion.div
-        
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-      
       >
         <Item elevation={0}>
           <Card sx={{ maxWidth: 330 }}>

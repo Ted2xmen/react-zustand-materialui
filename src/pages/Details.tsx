@@ -5,8 +5,19 @@ import { useStore } from "../store/dataStore";
 import { useEffect } from "react";
 import CardMedia from "@mui/material/CardMedia";
 import { Box, Stack, Chip, Typography } from "@mui/material";
+import React from "react";
 
-const Details = () => {
+interface Props {
+  detail: Object;
+  title: string;
+  image: string;
+  director: string;
+  release_date: string | number;
+  description: string;
+  original_title: string;
+}
+
+const Details: React.FC<Props> = () => {
   const { id } = useParams();
 
   const detail = useStore((state) => state.detail);
