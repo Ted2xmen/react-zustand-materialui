@@ -14,6 +14,11 @@ import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
+type Props = {
+  variant?: "text" | "rectangular" | "circular" | undefined;
+  movie: any;
+};
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -22,9 +27,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function MovieCard({ movie }: any) {
+export default function MovieCard({ movie }: Props) {
   const data = true; // movie
-
   const navigate = useNavigate();
 
   return (

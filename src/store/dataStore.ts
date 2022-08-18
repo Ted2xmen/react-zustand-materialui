@@ -2,10 +2,11 @@ import create from "zustand";
 import axios from "axios";
 
 type Props = {
+  fetchVehicle: any;
   fetchPerson: any;
   fetchDetail: any;
   fetchMovie: any;
-  category: Object | any;
+  category?: Object | any;
   searchTerm: string,
   // setCategory: (category: string) => void
   movies: Array<string>,
@@ -19,7 +20,7 @@ type Props = {
 
 export const useStore = create<Props>((set) => ({
   searchTerm: "",
-  category: [],
+  category: {},
 
   setCategory(category: string) {
     set((state) => ({

@@ -23,7 +23,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { useStore } from "../store/dataStore";
 
-function descendingComparator(a, b, orderBy) {
+function descendingComparator(a: number, b: number, orderBy: any) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
   }
@@ -33,24 +33,24 @@ function descendingComparator(a, b, orderBy) {
   return 0;
 }
 
-function getComparator(order, orderBy) {
+function getComparator(order: string, orderBy: string) {
   return order === "desc"
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
+    ? (a: number, b: number) => descendingComparator(a, b, orderBy)
+    : (a: number, b: number) => -descendingComparator(a, b, orderBy);
 }
 
 // This method is created for cross-browser compatibility, if you don't
 // need to support IE11, you can use Array.prototype.sort() directly
 function stableSort(array, comparator) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
+  const stabilizedThis = array.map((el: any[], index: number) => [el, index]);
+  stabilizedThis.sort((a: number, b: number) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) {
       return order;
     }
     return a[1] - b[1];
   });
-  return stabilizedThis.map((el) => el[0]);
+  return stabilizedThis.map((el: any[]) => el[0]);
 }
 
 const headCells = [
@@ -148,7 +148,7 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-const EnhancedTableToolbar = (props) => {
+const EnhancedTableToolbar = (props: { numSelected: any }) => {
   const { numSelected } = props;
 
   return (
@@ -217,13 +217,16 @@ export default function DataTable() {
   const personData = useStore((state) => state.person);
 
   const rows = personData;
-  const handleRequestSort = (event, property) => {
+  const handleRequestSort = (
+    event: any,
+    property: React.SetStateAction<string>
+  ) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
 
-  const handleSelectAllClick = (event) => {
+  const handleSelectAllClick = (event: { target: { checked: any } }) => {
     if (event.target.checked) {
       const newSelecteds = rows.map((n) => n.name);
       setSelected(newSelecteds);

@@ -8,8 +8,8 @@ import { Box, Stack, Chip, Typography } from "@mui/material";
 import React from "react";
 
 interface Props {
-  detail: Object;
-  title: string;
+  detail: object;
+  title: string | object;
   image: string;
   director: string;
   release_date: string | number;
